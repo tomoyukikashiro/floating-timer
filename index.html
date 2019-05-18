@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>Picture in Picture Timer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    button {
+      outline: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    html, body {
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+    }
+    #canvas, #video{
+      display: none;
+    }
+    #screen {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #005af0;
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    #time {
+      font-size: 3.5rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    #time .separator {
+      margin: 0 5px;
+    }
+    
+    #timeContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #running, #notsupported {
+      display: none;
+      color: #fff;
+    }
+
+    .buttons {
+      text-align: center;
+    }
+    .buttons button {
+      margin: 0 10px;
+    }
+
+    @media (min-width: 500px) {
+      #time, #running, #notsupported {
+        font-size: 6.5rem;
+      }
+    }
+    @media (min-width: 700px) {
+      #time, #running, #notsupported {
+        font-size: 9.5rem;
+      }
+    }
+    @media (min-width: 900px) {
+      #time, #running, #notsupported {
+        font-size: 11.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="screen">
+    <div id="timeContainer">
+      <div id="time"></div>
+      <div class="buttons">
+        <button type="button" id="buttonUp"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#fff" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
+        <button type="button" id="buttonDown"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#fff" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg></button>
+        <button type="button" id="buttonStart"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#fff" d="M8 5v14l11-7z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
+      </div>
+    </div>
+    <div id="running">Running...</div>
+    <div id="notsupported">Not Supported</div>
+  </div>
+  <canvas id="canvas" width="560" height="315"></canvas>
+  <video id="video" width="560" height="315" playsinline autoplay></video>
+  <a href="https://github.com/tomoyukikashiro/floating-timer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
